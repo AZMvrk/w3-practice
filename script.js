@@ -1,10 +1,28 @@
-let arrOfNumbers = [10, 20, 30, 40, 50, 60]
+console.log("loaded")
 
-/* for (let i = 0; i < arr.length; i++) {
-  let result = arr[i] * 2
-  console.log(result)
-} */
+const logClick = () => console.log("click")
+const logParam = (param) => console.log(param)
 
-let newArr = []
-arrOfNumbers.forEach((number) => newArr.push(number * 2))
-console.log(newArr)
+let count = 0;
+const logTickOrTock = () => {
+  count++;
+
+  if (count % 2 === 0) {
+    console.log("tock")
+  } else {
+    console.log("tick")
+  }
+}
+
+window.addEventListener("load", () => {
+  const rootElement = document.querySelector("#root")
+  console.log(rootElement)
+
+  rootElement.innerHTML = "lorem ipsum"
+
+  rootElement.addEventListener("click", logClick)
+
+  //window.addEventListener("click", () => logParam("logParam parameter"))
+
+  setInterval(logTickOrTock, 1000)
+})
